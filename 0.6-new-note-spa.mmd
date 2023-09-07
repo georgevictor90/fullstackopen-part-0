@@ -1,0 +1,8 @@
+sequenceDiagram
+participant Client
+participant Server
+Note right of Client: Submit form with new note
+Note right of Client: Browser executes callback function of form submit event listener
+Note right of Client: Creates new note, adds it to notes, rerenders all of them on screen
+Note right of Client: Sends new note to server
+Client->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
