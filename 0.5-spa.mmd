@@ -1,0 +1,14 @@
+sequenceDiagram
+participant Client
+participant Server
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+Note left of Server: Server sends HTML skeleton/template
+Server-->>Client: HTML Document
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->>Client: CSS file
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+Server-->>Client: JavaScript file
+Note right of Client: Browser executes JS code that fetches the json data from the server
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server-->>Client: [{content: "Hola soy Fernando Coronel ", date: "2023-09-07T16:11:52.751Z"},…]
+Note right of Client: Browser executes the callback function that renders the notes on page
