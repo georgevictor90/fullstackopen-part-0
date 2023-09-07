@@ -1,0 +1,16 @@
+sequenceDiagram
+participant Client
+participant Server
+Client->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+Note left of Server: Server gets new note and redirects client to /note
+Server-->>Client: redirect to /note
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server-->>Client: HTML document
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->>Client: css file
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->>Client: JavaScript file
+Note right of Client: Browser starts executing the JS code that fetches json data from server
+Client->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server-->>Client: [{content: "hello", date: "2023-09-07T15:18:57.747Z"},…]
+Note right of Client: Browser executes callback function that renders the notes
